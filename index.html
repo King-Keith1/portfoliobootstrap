@@ -1,375 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Freelancer - Start Bootstrap Theme</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/myStyles.css" rel="stylesheet"/>
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">Pierre Kahunda BootStrap</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pierre Kahunda Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome for modal icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .divider-custom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .divider-custom-line {
+            width: 100px;
+            height: 1px;
+            background-color: white;
+            margin: 0 1rem;
+        }
+
+        .divider-custom-icon {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pierre Kahunda</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center" id="my-header"> 
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="images" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Pierre Kahunda</h1>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Software engineer in training(SET)</p>
-            </div>
-        </header>
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Supermarket.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Guessing game.png" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Guess the word.jpeg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Weather.jpeg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Lemonaade stand.jpeg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="images/Calculator.jpeg" alt="..." />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="my-about" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">This is a portfolio web browser of Pierre Kahunda. This was created with the sole purpose of sharing some the the code he has done.</p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">He is still in trainning, thus this browser was not created to be flashy or unique but to show the code he created.</p></div>
-                </div>
-                
-            </div>
-    
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
-                        <p class="lead mb-0">
-                            Gauteng
-                            <br />
-                            Johannesburg
-                        </p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Around the Web</h4>
-                        <a class="mx-1" href="tel: 0827334039">0827334039</a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Email</h4>
-                        <p class="lead mb-0">
-                            keith4321ben@gmail.com
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2025</small></div>
         </div>
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Supermarket</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Supermarket.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p>You can add any item ti your cart and it will add, remove and alert you on the total price.</p> 
-                                    <a class="btn btn-primary" href="work/Shop/Shopping.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-5 bg-primary" style="margin-top: 72px;">
+        <img src="images/avatar.jpg" alt="Pierre Kahunda Avatar" class="avatar-img mb-4">
+        <h1 class="display-4">Pierre Kahunda</h1>
+        <p class="lead">Software Engineer in Training</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="container py-5" id="about">
+        <h2 class="text-center mb-4">About Me</h2>
+        <p class="text-center">I’m a software engineer in training with a passion for building elegant web applications.
+            I love learning new technologies and solving problems with clean, efficient code.</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="container py-5" id="portfolio">
+        <h2 class="text-center mb-4">Portfolio</h2>
+        <div class="row">
+            <!-- Portfolio Item 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+                    data-bs-target="#portfolioModal1">
+                    <img src="images/avatar_shop.png" class="card-img-top" alt="Supermarket Project">
+                    <div class="card-body">
+                        <h5 class="card-title">Super Spaza</h5>
+                        <p class="card-text">Shopping cart with add.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio Item 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+                    data-bs-target="#portfolioModal2">
+                    <img src="images/avatar_car.png" class="card-img-top" alt="Car CSS track">
+                    <div class="card-body">
+                        <h5 class="card-title">Car</h5>
+                        <p class="card-text">Just a simple CSS car race.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Portfolio Item 3 -->
+    <div class="col-md-4 mb-4">
+      <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+           data-bs-target="#portfolioModal3">
+        <img src="images/avatar_hangman.png" class="card-img-top" alt="Hangman Game">
+        <div class="card-body">
+          <h5 class="card-title">Hangman</h5>
+          <p class="card-text">Play the Hangman game.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 4 -->
+    <div class="col-md-4 mb-4">
+      <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+           data-bs-target="#portfolioModal4">
+        <img src="images/avatar_spirit_animal.png" class="card-img-top" alt="Spirit Animal Quiz">
+        <div class="card-body">
+          <h5 class="card-title">Spirit Animal</h5>
+          <p class="card-text">Take a quiz and discover your spirit animal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 5 -->
+    <div class="col-md-4 mb-4">
+      <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+           data-bs-target="#portfolioModal5">
+        <img src="images/avatar_calculator.png" class="card-img-top" alt="Ultra Calculator">
+        <div class="card-body">
+          <h5 class="card-title">Calculator</h5>
+          <p class="card-text">A datatype Calculator</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Item 6 -->
+    <div class="col-md-4 mb-4">
+      <div class="card bg-dark text-white portfolio-item" data-bs-toggle="modal"
+           data-bs-target="#portfolioModal6">
+        <img src="images/avatar_lemonade.png" class="card-img-top" alt="Lemonade stand">
+        <div class="card-body">
+          <h5 class="card-title">Lemonade</h5>
+          <p class="card-text">Sell lemonade in changing seasons.</p>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- ✅ All items inside this .row -->
+</section>
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Super Spaza</h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_shop.png"
+                                    alt="Supermarket Project">
+                                <p class="mb-4">You can add any item to your cart and it will add, remove and alert you
+                                    on the total price. Based on how spaza shop operate.</p>
+                                <a class="btn btn-primary" href="work/Shop/Shopping.html" target="_blank">Open
+                                    Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Guessing game</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Guessing game.png" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p >You have to guess from 1 till 7, if you get it incorrect it will tell you to try again.</p>
-                                    <a class="btn btn-primary" href="work/secrectnumber/index.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Car CSS track race
+                                </h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-car"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_car.png" alt="Weather App">
+                                <p class="mb-4">Race between other cars using mainly CSS.</p>
+                                <a class="btn btn-primary" href="work/Car/index.html" target="_blank">Open Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">What is the word?</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Guess the word.jpeg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p >Guess the word on the hangman game, but I coded it so that you would be able to see the word.</p>
-                                    <a class="btn btn-primary" href="work/Hangman/index.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Hangman game</h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-question-circle"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_hangman.png" alt="To-Do List App">
+                                <p class="mb-4">You have to choose between guessing for a random number or playing the
+                                    hangman game.</p>
+                                <a class="btn btn-primary" href="work/Hangman/hangman.html" target="_blank">Open
+                                    Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Weather</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Weather.jpeg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p >This is a randomizes the weather forecast.</p>
-                                    <a class="btn btn-primary" href="work/weather/chap17.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </div>
+
+        <!-- Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Spirit Animal Quiz</h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-paw"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_spirit_animal.png" alt="Spirit Animal Quiz">
+                                <p class="mb-4">Discover your spirit animal through this quiz.</p>
+                                <a class="btn btn-primary" href="work/Animal/Spirit Animal.html" target="_blank">Open Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lemonade stand</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Lemonaade stand.jpeg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p >This is a lemonade stand, where we are able to sell lemonade. Depending on the weather you would either sell more or less(The weather is randomized. You can also calculated your total profit.)</p>
-                                    <a class="btn btn-primary" href="work/Lemon/index.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </div> 
+
+    <!-- Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Calculator</h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-calculator"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_calculator.png" alt="SuperCalculator">
+                                <p class="mb-4">Learn about strings and number data sets.</p>
+                                <a class="btn btn-primary" href="work/Cal/supercal.html" target="_blank">Open Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Calculator</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="images/Calculator.jpeg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p >This is a calculator that allows you to add, divide, subtract, multiply numbers and much more. You can also add words together.</p>
-                                    <a class="btn btn-primary" href="work/Cal/supercal.html" target="_blank">
-                                        Open Project
-                                    </a>
+    </div> 
+
+    <!-- Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6Label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-5">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Lemonade stand</h2>
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-lemon"></i></div>
+                                    <div class="divider-custom-line"></div>
                                 </div>
+                                <img class="img-fluid rounded mb-5" src="images/avatar_lemonade.png" alt="Lemonade Stand">
+                                <p class="mb-4">Discover your spirit animal throught this quiz.</p>
+                                <a class="btn btn-primary" href="work/Lemon/index.html" target="_blank">Open
+                                    Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="container py-5" id="contact">
+        <h2 class="text-center mb-4">Contact</h2>
+        <div class="text-center mb-5">
+            <p><strong>Name:</strong> Pierre Kahunda</p>
+            <p><strong>Phone:</strong> 082 733 4038</p>
+            <p><strong>Email:</strong> <a href="mailto:keith4321ben@gmail.com"class="text-white">keith4321ben@gmail.com</a></p>
+            <p><strong>Address:</strong> Johannesburg, Gauteng, South Africa, 2139</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white text-center py-3">
+        <p>&copy; 2025 Pierre Kahunda</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+</body>
+
 </html>

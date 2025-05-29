@@ -1,120 +1,105 @@
-// create days of week array
-var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const weather = ["Sunny", "Partly Sunny", "Partly Cloudy", "Cloudy", "Raining", "Snowing", "Thunderstorm", "Foggy"];
+const maxTemp = 110;
+const minTemp = 32;
+const lemonadeCost = 0.5;
 
-// define types of weather
-var weather = ["Sunny", "Partly Sunny", "Partly Cloudy", "Cloudy", "Raining", "Snowing", "Thunderstorm", "Foggy"];
+let dailyTemp = [];
+let inventory = 0;
+let profit = 0;
 
-// set min and max temps
-var maxTemp = 110;
-var minTemp = 32;
-
-// cost (to you) of a cup of lemonade
-var lemonadeCost = 0.5;
-
-// array for storing daily temps
-var dailyTemp = [];
-
-// listen for order
 document.getElementById("OpenTheStand").addEventListener("click", openTheStand);
+document.getElementById("myData").addEventListener("click", myData);
 
-// make the week's weather
 generateWeather();
+updateInventoryNotice();
 
-/**
-generates weather for the week
-**/
 function generateWeather() {
-    var weatherToday;
-    var tempToday;
-    for (var i = 0; i < days.length; i++) {
-        weatherToday = weather[Math.floor(Math.random() * weather.length)];
-        tempToday = Math.floor(Math.random() * (maxTemp - minTemp) + minTemp);
-        dailyTemp[i] = tempToday;
-        document.getElementById("5DayWeather").innerHTML += "<div id='" + days[i] + "' class='" + weatherToday + "'><b>Forecast for " + days[i] + ":</b><br><br>" + weatherToday + " and " + tempToday + " degrees.</div>";
-    }
+  for (let i = 0; i < days.length; i++) {
+    const weatherToday = weather[Math.floor(Math.random() * weather.length)];
+    const tempToday = Math.floor(Math.random() * (maxTemp - minTemp) + minTemp);
+    dailyTemp[i] = tempToday;
+
+    document.getElementById("5DayWeather").innerHTML +=
+      `<div id='${days[i]}' class='${weatherToday}'>
+        <b>Forecast for ${days[i]}:</b><br><br>${weatherToday} and ${tempToday}°F
+       </div>`;
+  }
 }
 
-/**
-calculates glasses of lemonade sold
-**/
 function openTheStand() {
-    var glassesSold = 0; // daily
-    var totalGlasses = 0; // weekly
-    var glassesLeft = 0; // left to sell
+  resetResult();
+  updateInventoryNotice();
 
-    // clear out previous results
-    resetForm();
+  const newGlasses = Number(document.getElementById("numGlasses").value);
+  const glassPrice = Number(document.getElementById("glassPrice").value);
 
-    // get input
-    var numGlasses = Number(document.getElementById("numGlasses").value);
-    var glassPrice = Number(document.getElementById("glassPrice").value);
+  if (glassPrice <= 0.5) {
+    alert("Please enter a price greater than $0.50");
+    return;
+  }
 
+  if (inventory > 0 && newGlasses > 0) {
+    alert("You still have leftover lemonade! Sell it before making more.");
+    return;
+  }
 
-    for (var i = 0; i < days.length; i++) {
+  if (inventory === 0) {
+    inventory = newGlasses;
+  }
 
-        // glasses sold depends on temp and price
-        glassesSold = Math.floor(dailyTemp[i] / glassPrice);
+  let totalGlassesSold = 0;
 
-        // how many glasses do we have now?
-        glassesLeft = numGlasses - totalGlasses;
+  for (let i = 0; i < days.length - 1; i++) { // Sunday is reserved for summary
+    let glassesSold = Math.floor(dailyTemp[i] / glassPrice);
 
-        // we can't sell more than we have
-        if (glassesSold > glassesLeft) {
-            glassesSold = glassesLeft;
-        }
-
-        // increase the weekly total
-        totalGlasses = glassesSold + totalGlasses;
-
-        // display daily total
-        document.getElementById("result").innerHTML += "<p>" + days[i] + ", you sold " + glassesSold + " glasses of lemonade.</p>";
-
+    if (glassesSold > inventory) {
+      glassesSold = inventory;
     }
 
-    displayResults(numGlasses, glassPrice, totalGlasses);
+    inventory -= glassesSold;
+    totalGlassesSold += glassesSold;
 
+    document.getElementById("result").innerHTML += `<p>${days[i]}: You sold ${glassesSold} glasses.</p>`;
+
+    if (inventory <= 0) {
+      document.getElementById("result").innerHTML += `<p><b>You sold out!</b></p>`;
+      break;
+    }
+  }
+
+  displayResults(newGlasses, glassPrice, totalGlassesSold);
+  updateInventoryNotice();
 }
 
-/**
-calculates results and displays a report
-**/
-function displayResults(weeklyInventory, glassPrice, weeklySales) {
-    // calculate results
-    var revenue = weeklySales * glassPrice;
-    var expense = weeklyInventory * lemonadeCost;
-    var leftOver = weeklyInventory - weeklySales;
-    var profit = revenue - expense;
+function displayResults(weeklyAdded, glassPrice, weeklySales) {
+  const revenue = weeklySales * glassPrice;
+  const expense = weeklyAdded * lemonadeCost;
+  const weeklyProfit = revenue - expense;
+  profit += weeklyProfit;
 
-    // print out the weekly report
-    document.getElementById("result").innerHTML += "<p>You sold a total of " + weeklySales + " glasses of lemonade this week.</p>";
-    document.getElementById("result").innerHTML += "<p>Total revenue: $" + revenue + ".</p>";
-    document.getElementById("result").innerHTML += "<p>You have " + leftOver + " glasses of lemonade left over.</p>";
-    document.getElementById("result").innerHTML += "<P>Each glass costs you $" + lemonadeCost + ". Your profit was $" + profit + "."
-    document.getElementById("myData"),addEventListener("click", myData);
+  document.getElementById("result").innerHTML += `
+    <p><strong>Sunday Summary:</strong></p>
+    <p>Total sold this week: ${weeklySales}</p>
+    <p>Leftover lemonade: ${inventory}</p>
+    <p>Total revenue: $${revenue.toFixed(2)}</p>
+    <p>This week's profit: $${weeklyProfit.toFixed(2)}</p>
+  `;
+}
+
+function resetResult() {
+  document.getElementById("result").innerHTML = "";
+}
+
+function updateInventoryNotice() {
+  const notice = document.getElementById("inventoryNotice");
+  if (inventory > 0) {
+    notice.innerText = `You still have ${inventory} unsold glasses of lemonade. Sell them before making more.`;
+  } else {
+    notice.innerText = "You have no leftover lemonade. Ready to make a new batch!";
+  }
+}
+
 function myData() {
-    console.log(profit)
+  console.log("Total profit so far: $" + profit.toFixed(2));
 }
-}
-
-/**
-resets the game so that a new order can be placed
-**/
-function resetForm() {
-    document.getElementById("result").innerHTML = "";
-    
-}
-
-    
-
-
-
-
-
-
-
-    //     document.getElementById("myData"),addEventListener("click", myData);
-//     console,log("Your profit was $" + profit + ".")
-// };
-
-
-// element.addEventListener(event, function, useCapture);

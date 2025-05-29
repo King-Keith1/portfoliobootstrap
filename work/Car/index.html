@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Racing Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>🏁 CSS Racing Game</h1>
+
+  <div class="track-selector">
+    <button onclick="setTrack(1)">Track 1</button>
+    <button onclick="setTrack(2)">Track 2</button>
+    <button onclick="setTrack(3)">Track 3</button>
+    <button onclick="setTrack(4)">Track 4</button>
+  </div>
+
+  <div class="track" id="raceTrack">
+    <div class="car" id="car1"></div>
+    <div class="car" id="car2"></div>
+    <div class="car" id="car3"></div>
+    <div class="car" id="car4"></div>
+  </div>
+
+  <!-- inside <body>, near bottom -->
+<div class="controls">
+  <button onclick="startRace()">Start Race</button>
+  <button onclick="playerGo()">🚗 Tap to Drive (Player 1)</button>
+</div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

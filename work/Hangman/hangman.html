@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guessing Game Combo</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: #333;
+      text-align: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #ffffff;
+      color: #333;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ffe0c3;
+    }
+
+    #scoreBoard {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Guessing Game</h1>
+  <button onclick="startGame('number')">Guess a Number</button>
+  <button onclick="startGame('word')">Guess a Word</button>
+  <div id="scoreBoard">
+    <p><strong>Wins:</strong> <span id="winCount">0</span> | <strong>Losses:</strong> <span id="lossCount">0</span></p>
+  </div>
+
+  <script>
+    let wins = 0;
+    let losses = 0;
+
+    function updateScore() {
+      document.getElementById("winCount").textContent = wins;
+      document.getElementById("lossCount").textContent = losses;
+    }
+
+    const successMessages = [
+      "You guessed it! Are you psychic or just lucky?",
+      "Nice! Even a broken clock is right twice a day.",
+      "Boom! You nailed it like a pro.",
+      "Sharp guess! Someone's on fire.",
+      "You're scarily good at this.",
+      "Did you cheat? Be honest.",
+      "That brain of yours is cooking!",
+      "Legendary move!",
+      "Too good. I'm starting to get worried.",
+      "Big brain energy detected."
+    ];
+
+    const failMessages = [
+      "That guess was so bad it offended my logic circuits.",
+      "Seriously? Try using your brain this time.",
+      "Are you even trying?",
+      "Yikes. That was tragic.",
+      "Oops. That one hurt.",
+      "Cold. Like, Antarctic cold.",
+      "That guess belongs in the Hall of Shame.",
+      "You’re writing a textbook on how *not* to guess.",
+      "Your guess just made my CPU cringe.",
+      "Nope. Not even close."
+    ];
+
+    function getRandomMessage(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    const wordList = [
+      "banana", "window", "pillow", "candle", "bottle", "orange", "basket", "pencil",
+      "summer", "cookie", "cloud", "camera", "carpet", "mirror", "puzzle", "rocket",
+      "pocket", "button", "bubble", "guitar", "blanket", "wallet", "turtle", "ladder",
+      "shampoo", "napkin", "ticket", "waffle", "vacuum", "jacket"
+    ];
+
+    function startGame(type) {
+      if (type === "number") {
+        const secretNumber = Math.floor(Math.random() * 20) + 1;
+        let guess;
+
+        while (true) {
+          guess = Number(prompt("Guess the secret number (1-20):"));
+
+          if (guess === secretNumber) {
+            alert(getRandomMessage(successMessages));
+            wins++;
+            updateScore();
+            break;
+          } else {
+            alert(getRandomMessage(failMessages));
+            losses++;
+            updateScore();
+          }
+        }
+      } else if (type === "word") {
+        let word = wordList[Math.floor(Math.random() * wordList.length)];
+        let display = "_".repeat(word.length).split('');
+        let attempts = 6;
+        let guessedLetters = [];
+
+        while (attempts > 0 && display.includes("_")) {
+          let letter = prompt(
+            `Word: ${display.join(" ")}\nAttempts left: ${attempts}\nGuessed: ${guessedLetters.join(", ")}\nGuess a letter:`).toLowerCase();
+
+          if (!letter || letter.length !== 1 || guessedLetters.includes(letter)) continue;
+
+          guessedLetters.push(letter);
+
+          if (word.includes(letter)) {
+            for (let i = 0; i < word.length; i++) {
+              if (word[i] === letter) display[i] = letter;
+            }
+          } else {
+            attempts--;
+            alert(getRandomMessage(failMessages));
+            losses++;
+            updateScore();
+          }
+        }
+
+        if (!display.includes("_")) {
+          alert(`The word was "${word}".\n${getRandomMessage(successMessages)}`);
+          wins++;
+        } else {
+          alert(`Out of attempts! The word was "${word}".`);
+        }
+
+        updateScore();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: #e0e0e0;
+}
+
+h1 {
+  margin: 20px;
+}
+
+.track-selector button,
+.controls button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.track {
+  position: relative;
+  width: 90%;
+  height: 200px;
+  margin: 20px auto;
+  background: repeating-linear-gradient(
+    0deg,
+    #444 0px,
+    #444 20px,
+    #666 20px,
+    #666 40px
+  );
+  border: 4px solid #000;
+  overflow: hidden;
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.car {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  top: 0;
+  left: 0;
+  transition: left 0.3s ease;
+  border-radius: 5px;
+}
+
+#car1 { background: red; top: 10px; }
+#car2 { background: blue; top: 60px; }
+#car3 { background: green; top: 110px; }
+#car4 { background: orange; top: 160px; }
+
+.controls button,
+.track-selector button {
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.controls button:hover,
+.track-selector button:hover {
+  background-color: #222;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .controls button,
+  .track-selector button {
+    padding: 20px 30px;
+    font-size: 1.3rem;
+  }
+}

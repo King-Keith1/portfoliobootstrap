@@ -1,83 +1,186 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="calculator.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JS DataType Calculator</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: #1e1e1e;
+      color: #eee;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    #history {
+      margin-top: 20px;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    #history li {
+      background: #e0e0e0;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    body.dark #history li {
+      background: #333;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="calculator">
-        <header>
-            <h1>JS Super-Calculator</h1>
-            <p>The super-calculator shows the result of using different operators</p>
-        </header>
-        <div class="input-area">
-            <h2>Step 1: Enter the 1st Operand</h2>
-            <input type="text" id="operand1" value="1" />
-            <select id="operand1-type">
-                <option value="number">number</option>
-                <option value="string">string</option>
-            </select>
-        </div>
+  <div class="container">
+    <h1>JS Type Coercion Calculator</h1>
 
-        <div class="input-area">
-            <h2>Step 2: Choose an Operator</h2>
-            <div class="operator-choices">
-                <h3>Arithmetic Operators</h3>
+    <label>Operand 1:
+      <input type="text" id="operand1" />
+    </label>
+    <label>Type:
+      <select id="type1">
+        <option value="number">Number</option>
+        <option value="string">String</option>
+      </select>
+    </label>
 
-                <!-- //&nbsp; creates a space that doesn't break into a new line in HTML. -->
-                <input type="radio" name="operator" value="+" checked>+&nbsp;
-                <input type="radio" name="operator" value="-">-&nbsp;
-                <input type="radio" name="operator" value="*">*&nbsp;
-                <input type="radio" name="operator" value="/">/&nbsp;
-                <input type="radio" name="operator" value="%">%&nbsp;
+    <label>Operand 2:
+      <input type="text" id="operand2" />
+    </label>
+    <label>Type:
+      <select id="type2">
+        <option value="number">Number</option>
+        <option value="string">String</option>
+      </select>
+    </label>
 
-                <h3>String Operator</h3>
-                <input type="radio" name="operator" value="concat">+ (concatenation)&nbsp;
+    <label>Operator:
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+        <option value="==">==</option>
+        <option value="===">===</option>
+        <option value="!=">!=</option>
+        <option value="!==">!==</option>
+        <option value="<">&lt;</option>
+        <option value="<=">&lt;=</option>
+        <option value=">">&gt;</option>
+        <option value=">=">&gt;=</option>
+      </select>
+    </label>
 
-                <h3>Comparison Operators</h3>
-                <input type="radio" name="operator" value="==">==&nbsp;
-                <input type="radio" name="operator" value="===">===&nbsp;
-                <input type="radio" name="operator" value="!=">!=&nbsp;
-                <input type="radio" name="operator" value="!==">!==&nbsp;
-                <input type="radio" name="operator" value=">">&gt;&nbsp;
-                <input type="radio" name="operator" value=">=">&gt;=&nbsp;
-                <input type="radio" name="operator" value="<">&lt;&nbsp;
-                <input type="radio" name="operator" value="<=">&lt;=&nbsp;
-            </div>
-        </div>
+    <button onclick="calculate()">Calculate</button>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark Mode</button>
 
-        <div class="input-area">
-            <h2>Step 3: Enter the 2nd Operand</h2>
-            <input type="text" id="operand2" value="1">
-            <select id="operand2-type">
-                <option value="number">number</option>
-                <option value="string">string</option>
-            </select>
-        </div>
+    <div id="result"></div>
 
-        <div class="input-area">
-            <h2>Step 4: Click the Button</h2>
-            <input type="submit" id="submit" value="Operate!">
-        </div>
-        <hr>
-        <div class="output-area">
-            <h2>Output</h2>
+    <h2>History</h2>
+    <ul id="history"></ul>
+  </div>
 
-            <h3>Operation</h2>
-                <span id="final-operation">???</span>
+  <script>
+    function calculate() {
+      let operand1 = document.getElementById("operand1").value;
+      let operand2 = document.getElementById("operand2").value;
+      let type1 = document.getElementById("type1").value;
+      let type2 = document.getElementById("type2").value;
+      let operator = document.getElementById("operator").value;
 
+      if (type1 === "number") operand1 = Number(operand1);
+      if (type2 === "number") operand2 = Number(operand2);
+      if (type1 === "string") operand1 = String(operand1);
+      if (type2 === "string") operand2 = String(operand2);
 
-                <h3>Return Value:</h2>
-                    <span id="result">???</span>
-        </div>
-    </div>
+      let returnValue;
 
+      try {
+        switch (operator) {
+          case "+": returnValue = operand1 + operand2; break;
+          case "-": returnValue = operand1 - operand2; break;
+          case "*": returnValue = operand1 * operand2; break;
+          case "/": returnValue = operand1 / operand2; break;
+          case "%": returnValue = operand1 % operand2; break;
+          case "==": returnValue = operand1 == operand2; break;
+          case "===": returnValue = operand1 === operand2; break;
+          case "!=": returnValue = operand1 != operand2; break;
+          case "!==": returnValue = operand1 !== operand2; break;
+          case "<": returnValue = operand1 < operand2; break;
+          case "<=": returnValue = operand1 <= operand2; break;
+          case ">": returnValue = operand1 > operand2; break;
+          case ">=": returnValue = operand1 >= operand2; break;
+          default: returnValue = "Invalid operator";
+        }
+      } catch (err) {
+        returnValue = "Error: " + err.message;
+      }
+
+      document.getElementById("result").innerHTML = `
+        Result: <strong>${returnValue}</strong> 
+        <br/>Type: <em>${typeof returnValue}</em>
+      `;
+
+      // Append to history
+      const historyItem = document.createElement("li");
+      historyItem.textContent = `${operand1} ${operator} ${operand2} = ${returnValue} (${typeof returnValue})`;
+      document.getElementById("history").appendChild(historyItem);
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
 </body>
-<script src="calculator.js"></script>
-
 </html>

@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #b3e5cc, #cfd8f9);
+    color: #2f2f3b;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+#quiz-container {
+    width: 95%;
+    max-width: 700px; /* Increased width */
+    background: #ffffff;
+    padding: 40px; /* More padding */
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* More space between form elements */
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    font-size: 20px; /* Bigger label text */
+    color: #4a4a5c;
+}
+
+input, select {
+    width: 100%;
+    padding: 16px; /* Taller inputs */
+    margin-top: 8px;
+    border: 1px solid #b5d3c3;
+    border-radius: 10px;
+    font-size: 18px; /* Bigger input text */
+    background-color: #f5fcf9;
+    color: #333;
+}
+
+/* Button */
+button {
+    background: linear-gradient(to right, #4e8cff, #8e44ad);
+    color: white;
+    border: none;
+    padding: 16px; /* Larger button */
+    border-radius: 10px;
+    font-size: 20px; /* Bigger button text */
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #3a6edc, #732d91);
+}
+
+/* Result Styling */
+#result-container {
+    margin-top: 30px;
+    padding: 25px;
+    background: #e6f2f0;
+    border-radius: 16px;
+    border: 1px solid #c3dedc;
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.05);
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+#result-container h2 {
+    color: #6a1b9a;
+    font-size: 28px; /* Bigger heading */
+    margin-bottom: 15px;
+}
+
+#result-container p {
+    font-size: 18px;
+    color: #445;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+/* Optional: Hide the form when the result is displayed */
+#quiz-container:has(#result-container) form {
+    display: none;
+}
+
+.spirit-animal-image {
+    max-width: 300px; /* Bigger image */
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar Container */
+#progress-container {
+    width: 100%;
+    background-color: #d0e8e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    height: 20px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #4e8cff, #8e44ad);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Button Group Layout */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
