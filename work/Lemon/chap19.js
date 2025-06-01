@@ -10,6 +10,7 @@ let profit = 0;
 
 document.getElementById("OpenTheStand").addEventListener("click", openTheStand);
 document.getElementById("myData").addEventListener("click", myData);
+document.getElementById("sellLeftoversBtn").addEventListener("click", sellLeftovers);
 
 generateWeather();
 updateInventoryNotice();
@@ -78,13 +79,12 @@ function displayResults(weeklyAdded, glassPrice, weeklySales) {
   const weeklyProfit = revenue - expense;
   profit += weeklyProfit;
 
-  document.getElementById("result").innerHTML += `
-    <p><strong>Sunday Summary:</strong></p>
-    <p>Total sold this week: ${weeklySales}</p>
-    <p>Leftover lemonade: ${inventory}</p>
-    <p>Total revenue: $${revenue.toFixed(2)}</p>
-    <p>This week's profit: $${weeklyProfit.toFixed(2)}</p>
-  `;
+  document.getElementById("result").innerHTML += 
+    `<p><strong>Sunday Summary:</strong></p>
+     <p>Total sold this week: ${weeklySales}</p>
+     <p>Leftover lemonade: ${inventory}</p>
+     <p>Total revenue: $${revenue.toFixed(2)}</p>
+     <p>This week's profit: $${weeklyProfit.toFixed(2)}</p>`;
 }
 
 function resetResult() {
@@ -103,3 +103,52 @@ function updateInventoryNotice() {
 function myData() {
   console.log("Total profit so far: $" + profit.toFixed(2));
 }
+
+function sellLeftovers() {
+  resetResult();
+
+  if (inventory <= 0) {
+    document.getElementById("result").innerHTML = "<p>No leftovers to sell.</p>";
+    updateInventoryNotice();
+    return;
+  }
+
+  const glassPrice = Number(document.getElementById("glassPrice").value);
+
+  if (glassPrice <= 0.5) {
+    alert("Please enter a price greater than $0.50 to sell leftovers.");
+    return;
+  }
+
+  let leftoverSold = 0;
+
+  for (let i = 0; i < days.length - 1; i++) {
+    if (inventory <= 0) break;
+
+    let glassesSold = Math.floor(dailyTemp[i] / glassPrice);
+
+    if (glassesSold > inventory) {
+      glassesSold = inventory;
+    }
+
+    inventory -= glassesSold;
+    leftoverSold += glassesSold;
+
+    document.getElementById("result").innerHTML += `<p>${days[i]}: Sold ${glassesSold} leftover glasses.</p>`;
+  }
+
+  const revenue = leftoverSold * glassPrice;
+  const weeklyProfit = revenue; // No expense for leftovers
+  profit += weeklyProfit;
+
+  document.getElementById("result").innerHTML += `
+    <p><strong>Leftover Sale Summary:</strong></p>
+    <p>Total leftover sold: ${leftoverSold}</p>
+    <p>Remaining inventory: ${inventory}</p>
+    <p>Revenue from leftovers: $${revenue.toFixed(2)}</p>
+    <p>Profit: $${weeklyProfit.toFixed(2)}</p>
+  `;
+
+  updateInventoryNotice();
+}
+
