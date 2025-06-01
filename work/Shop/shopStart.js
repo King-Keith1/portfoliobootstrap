@@ -24,7 +24,7 @@ const items = [
     { name: "Chicken Feet", price: 15.0, category: "Meals" },
 
     // Essentials
-    { name: "Matches", price: 2.0, category: "Essentials" },
+    { name: "Matches", price: 1.0, category: "Essentials" },
     { name: "Cigarettes (single)", price: 2.5, category: "Essentials" },
     { name: "Candles", price: 4.0, category: "Essentials" },
     { name: "Soap Bar", price: 6.0, category: "Essentials" },
