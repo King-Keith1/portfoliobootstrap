@@ -3151,7 +3151,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             {
                 name: "Stingray",
-                type: "Fish", // Note: Biologically a cartilaginous fish (elasmobranch), kept as "Fish" per your input
+                type: "Fish", 
                 traits: ["Graceful", "Mysterious", "Protective"],
                 zodiacMatches: ["Scorpio", "Pisces"],
                 generations: ["Gen X", "Millennials"],
